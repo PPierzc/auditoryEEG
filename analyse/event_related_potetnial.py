@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from .utils import bootstrap_error, signal_data
+from .utils import bootstrap_error, getSignalData
 
 def ERP(X, y, channel_id):
 	X_target = X[y == 1]
@@ -31,8 +31,8 @@ def ERP(X, y, channel_id):
 	plt.show()
 
 if __name__ == '__main__':
-	X = signal_data['X']
-	y = signal_data['y']
+	X = getSignalData()['X']
+	y = getSignalData()['y']
 
 	channel_id = 9
 

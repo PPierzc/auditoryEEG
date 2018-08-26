@@ -101,23 +101,24 @@ def bootstrap_error(signals):
 	b_std = np.std(b_sig, axis=0)
 	return (b_mean, b_std)
 
-signal_data = {
-	'X': np.concatenate((
-        np.load('../Ania_Ch_classes.npy'),
-	    np.load('../Tomek_classes.npy'),
-	    np.load('../pawel_classes.npy'),
-	    np.load('../lukasz_classes.npy'),
-	    np.load('../Czarek_classes.npy'),
-	    np.load('../Weronika_classes.npy'),
-	    np.load('../Ania_S_classes.npy')
-	)),
-	'y': np.concatenate((
-	    np.load('../Ania_Ch_labels.npy'),
-	    np.load('../Tomek_labels.npy'),
-	    np.load('../pawel_labels.npy'),
-	    np.load('../lukasz_labels.npy'),
-	    np.load('../Czarek_labels.npy'),
-	    np.load('../Weronika_labels.npy'),
-	    np.load('../Ania_S_labels.npy')
-	))
-}
+def getSignalData():
+	return {
+		'X': np.concatenate((
+	        np.load('../Ania_Ch_classes.npy'),
+		    np.load('../Tomek_classes.npy'),
+		    np.load('../pawel_classes.npy'),
+		    np.load('../lukasz_classes.npy'),
+		    np.load('../Czarek_classes.npy'),
+		    np.load('../Weronika_classes.npy'),
+		    np.load('../Ania_S_classes.npy')
+		)),
+		'y': np.concatenate((
+		    np.load('../Ania_Ch_labels.npy'),
+		    np.load('../Tomek_labels.npy'),
+		    np.load('../pawel_labels.npy'),
+		    np.load('../lukasz_labels.npy'),
+		    np.load('../Czarek_labels.npy'),
+		    np.load('../Weronika_labels.npy'),
+		    np.load('../Ania_S_labels.npy')
+		))
+	}

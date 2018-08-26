@@ -2,8 +2,8 @@ import numpy as np
 import scipy.signal as ss
 from obci_readmanager.signal_processing.read_manager import ReadManager
 
-from .model.config import SAMPLING_RATE as ANALYSIS_SAMPLING_RATE
-from .utils import ValueWithProps
+from model.config import SAMPLING_RATE as ANALYSIS_SAMPLING_RATE
+from utils import ValueWithProps
 
 class Data_Reader(object):
 
@@ -241,13 +241,13 @@ if __name__ == '__main__':
 	channel_names = ['ExG1', 'ExG2', 'ExG3', 'ExG4', 'ExG5', 'ExG6', 'ExG7', 'ExG8', 'ExG10', 'ExG11', 'ExG12', 'ExG13', 'ExG14', 'ExG16', 'ExG17', 'ExG18', 'ExG19', 'ExG20', 'ExG21', 'ExG22', 'ExG23']
 	reference_channels = ['ExG9', 'ExG15']
 	Data_Reader('../pawel_auditory', 1.524506533165685E9, '../pawel', channel_names, reference_channels)
-	# data_reader('../lukasz_auditory', 1.524503048304122E9, '../lukasz', channel_names, reference_channels)
-	# channel_names = ['Fp1', 'Fpz', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'Oz', 'O2']
-	# reference_channels = ['M1', 'M2']
-	# data_reader('../Aniach_auditory', 1.527520873794541E9, '../Ania_Ch', channel_names, reference_channels)
-	# data_reader('../Ania_S_auditory', 1.52752763303048E9, '../Ania_S', channel_names, reference_channels)
-	# data_reader('../Czarek_auditory', 1.527518817046714E9, '../Czarek', channel_names, reference_channels)
-	# # data_reader('../Justyna_auditory', 1.527514410394228E9, '../Justyna', channel_names, reference_channels)
-	# data_reader('../Tomek_auditory', 1.527516716333505E9, '../Tomek', channel_names, reference_channels)
-	# data_reader('../Weronika_auditory', 1.527530160826849E9, '../Weronika', channel_names, reference_channels)
+	Data_Reader('../lukasz_auditory', 1.524503048304122E9, '../lukasz', channel_names, reference_channels)
+	channel_names = ['Fp1', 'Fpz', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'T3', 'C3', 'Cz', 'C4', 'T4', 'T5', 'P3', 'Pz', 'P4', 'T6', 'O1', 'Oz', 'O2']
+	reference_channels = ['M1', 'M2']
+	Data_Reader('../Aniach_auditory', 1.527520873794541E9, '../Ania_Ch', channel_names, reference_channels)
+	Data_Reader('../Ania_S_auditory', 1.52752763303048E9, '../Ania_S', channel_names, reference_channels)
+	Data_Reader('../Czarek_auditory', 1.527518817046714E9, '../Czarek', channel_names, reference_channels)
+	# Data_Reader('../Justyna_auditory', 1.527514410394228E9, '../Justyna', channel_names, reference_channels)
+	Data_Reader('../Tomek_auditory', 1.527516716333505E9, '../Tomek', channel_names, reference_channels)
+	Data_Reader('../Weronika_auditory', 1.527530160826849E9, '../Weronika', channel_names, reference_channels)
 
