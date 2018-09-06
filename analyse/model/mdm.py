@@ -5,7 +5,7 @@ from .config import SAMPLING_RATE
 
 class Ensamble_MDM(object):
 	def __init__(self):
-		self.NUMBER_OF_MODELS = 20
+		self.NUMBER_OF_MODELS = 2
 		self.models = []
 
 	def fit(self, X, y, *args, **kwargs):
@@ -27,6 +27,7 @@ class Ensamble_MDM(object):
 			return acc
 
 		for i in range(self.NUMBER_OF_MODELS):
+			print(i)
 			bootstrap_indexes = np.random.randint(0, X.shape[0], X.shape[0])
 
 			X_bootstrap = X[bootstrap_indexes]
@@ -67,7 +68,7 @@ class Ensamble_MDM(object):
 		total_possible = 0
 
 		for model in self.models:
-			total_possible += model[1]
+			total_possible += model['true_negative']
 			if model['model'].predict(cov):
 				prediction[1] += model['true_negative']
 			else:

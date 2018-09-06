@@ -22,7 +22,7 @@ class Ensamble_CNN(object):
                            metrics=['accuracy'])
 
     def fit(self, X, y, *args, **kwargs):
-        self.model.fit(X, y, batch_size=16, nb_epoch=100, verbose=0)
+        self.model.fit(X, y, batch_size=16, nb_epoch=10, verbose=1)
 
     def predict(self, X,):
         return np.round(self.model.predict(X.reshape(1, 8, SAMPLING_RATE)))

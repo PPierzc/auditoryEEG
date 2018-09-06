@@ -78,16 +78,16 @@ def ROC(X, y, model, name=None, path=None):
 		auc += t_p[::-1][i] * df
 	auc -= t_p[-1] * diff_f_p[-1]/2
 
-	plt.subplot(1, 2, 2)
-	plt.plot(f_p, t_p)
-	plt.plot([0, 1], [0, 1], ls='--')
-	plt.xlabel('False Positive Rate')
-	plt.ylabel('True Positive Rate')
-	plt.title("AUC: {:.2f}".format(auc))
-
-	if path: plt.savefig(path)
-
-	plt.show()
+	# plt.subplot(1, 2, 2)
+	# plt.plot(f_p, t_p)
+	# plt.plot([0, 1], [0, 1], ls='--')
+	# plt.xlabel('False Positive Rate')
+	# plt.ylabel('True Positive Rate')
+	# plt.title("AUC: {:.2f}".format(auc))
+	#
+	# if path: plt.savefig(path)
+	#
+	# plt.show()
 
 def bootstrap_error(signals):
 	N = 100
