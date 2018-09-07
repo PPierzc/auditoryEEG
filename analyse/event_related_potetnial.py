@@ -5,6 +5,7 @@ from model.config import SAMPLING_RATE
 from utils import bootstrap_error, getSignalData
 
 def ERP(X, y, channel_id):
+	print(y)
 	X_target = X[y == 1]
 	X_non_target = X[y == 0]
 
@@ -32,8 +33,10 @@ def ERP(X, y, channel_id):
 	plt.show()
 
 if __name__ == '__main__':
-	X = getSignalData()['X']
-	y = getSignalData()['y']
+	data = getSignalData()
+	print('Data recieved')
+	X = data['X']
+	y = data['y']
 
 	channel_id = 7
 

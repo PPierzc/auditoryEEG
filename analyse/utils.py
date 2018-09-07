@@ -102,6 +102,7 @@ def bootstrap_error(signals):
 	return (b_mean, b_std)
 
 def getSignalData():
+	print('Getting Signal Data')
 	return {
 		'X': np.concatenate((
 	        np.load('../Ania_Ch_classes.npy'),

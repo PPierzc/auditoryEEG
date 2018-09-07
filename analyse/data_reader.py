@@ -218,7 +218,7 @@ class Data_Reader(object):
 
 		target = ValueWithProps.find(self.populated_classes, {
 			'role': 'train',
-			'class_type': 'non_target'
+			'class_type': 'target'
 		})
 
 		non_target = np.array(list(map(lambda item: item.value, non_target)))
