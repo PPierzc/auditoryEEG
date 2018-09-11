@@ -25,7 +25,7 @@ class ValueWithProps (object):
 		return np.array(_response_array)
 
 
-def ROC(X, y, model, name=None, path=None):
+def ROC(X, y, model, name=None, path=None, show=True):
 
 	indexes = np.arange(0, len(y))
 	np.random.shuffle(indexes)
@@ -78,16 +78,16 @@ def ROC(X, y, model, name=None, path=None):
 		auc += t_p[::-1][i] * df
 	auc -= t_p[-1] * diff_f_p[-1]/2
 
-	# plt.subplot(1, 2, 2)
-	# plt.plot(f_p, t_p)
-	# plt.plot([0, 1], [0, 1], ls='--')
-	# plt.xlabel('False Positive Rate')
-	# plt.ylabel('True Positive Rate')
-	# plt.title("AUC: {:.2f}".format(auc))
-	#
-	# if path: plt.savefig(path)
-	#
-	# plt.show()
+	plt.subplot(1, 2, 2)
+	plt.plot(f_p, t_p)
+	plt.plot([0, 1], [0, 1], ls='--')
+	plt.xlabel('False Positive Rate')
+	plt.ylabel('True Positive Rate')
+	plt.title("AUC: {:.2f}".format(auc))
+
+	if path: plt.savefig(path)
+
+	if show: plt.show()
 
 def bootstrap_error(signals):
 	N = 100
@@ -103,23 +103,44 @@ def bootstrap_error(signals):
 
 def getSignalData():
 	print('Getting Signal Data')
+	data = {
+		'X': {
+			'f1': np.load('../Ania_Ch_classes.npy'),
+			'm1': np.load('../Tomek_classes.npy'),
+		    'm2': np.load('../pawel_classes.npy'),
+	        'm3': np.load('../lukasz_classes.npy'),
+	        'm4': np.load('../Czarek_classes.npy'),
+	        'f2': np.load('../Weronika_classes.npy'),
+	        'f3': np.load('../Ania_S_classes.npy')
+		},
+		'y': {
+			'f1': np.load('../Ania_Ch_labels.npy'),
+			'm1': np.load('../Tomek_labels.npy'),
+			'm2': np.load('../pawel_labels.npy'),
+			'm3': np.load('../lukasz_labels.npy'),
+			'm4': np.load('../Czarek_labels.npy'),
+			'f2': np.load('../Weronika_labels.npy'),
+			'f3': np.load('../Ania_S_labels.npy')
+		}
+	}
 	return {
 		'X': np.concatenate((
-	        np.load('../Ania_Ch_classes.npy'),
-		    np.load('../Tomek_classes.npy'),
-		    np.load('../pawel_classes.npy'),
-		    np.load('../lukasz_classes.npy'),
-		    np.load('../Czarek_classes.npy'),
-		    np.load('../Weronika_classes.npy'),
-		    np.load('../Ania_S_classes.npy')
+	        data['X']['f1'],
+	        data['X']['m1'],
+	        data['X']['m2'],
+	        data['X']['m3'],
+	        data['X']['m4'],
+	        data['X']['f2'],
+	        data['X']['f3'],
 		)),
 		'y': np.concatenate((
-		    np.load('../Ania_Ch_labels.npy'),
-		    np.load('../Tomek_labels.npy'),
-		    np.load('../pawel_labels.npy'),
-		    np.load('../lukasz_labels.npy'),
-		    np.load('../Czarek_labels.npy'),
-		    np.load('../Weronika_labels.npy'),
-		    np.load('../Ania_S_labels.npy')
-		))
+			data['y']['f1'],
+			data['y']['m1'],
+			data['y']['m2'],
+			data['y']['m3'],
+			data['y']['m4'],
+			data['y']['f2'],
+			data['y']['f3'],
+		)),
+		'data': data
 	}

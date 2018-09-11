@@ -5,7 +5,7 @@ from .config import SAMPLING_RATE
 
 class Ensamble_MDM(object):
 	def __init__(self):
-		self.NUMBER_OF_MODELS = 2
+		self.NUMBER_OF_MODELS = 20
 		self.models = []
 
 	def fit(self, X, y, *args, **kwargs):
@@ -77,4 +77,7 @@ class Ensamble_MDM(object):
 		return prediction[1] / total_possible
 
 	def __str__(self):
+		return 'Ensamble_MDM'
+
+	def __repr__(self):
 		return 'Ensamble_MDM'

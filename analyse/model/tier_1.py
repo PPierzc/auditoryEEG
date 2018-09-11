@@ -4,20 +4,10 @@ class Tier_1_Model(object):
     def __init__(self, models):
         self.models = models
 
-    def fit(self, X, y, X_test, y_test):
+    def fit(self, X, y, *args):
 
         for model_index in range(len(self.models)):
-            total = len(y_test)
-            correct = 0
-            f_p = 0
-
-            self.models[model_index].fit(X, y, X_test, y_test)
-
-            for i in range(total):
-                if self.models[model_index].predict(X_test[i]) == y_test[i]:
-                    correct += 1
-                elif self.models[model_index].predict(X_test[i]) == 1:
-                    f_p += 1
+            self.models[model_index].fit(X, y, *args)
 
     def predict(self, X):
         prediction = np.zeros(2)
@@ -39,4 +29,7 @@ class Tier_1_Model(object):
         return prediction / len(self.models)
 
     def __str__(self):
+        return 'Tier 1 Model'
+
+    def __repr__(self):
         return 'Tier 1 Model'

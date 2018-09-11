@@ -4,13 +4,13 @@ from .tier_1 import Tier_1_Model
 
 class Tier_2_Model(object):
 
-    def __init__(self, *args, **kwargs):
-        if kwargs['global_model']:
+    def __init__(self, models, *args, **kwargs):
+        if 'global_model' in kwargs.keys():
             self.global_model = kwargs['global_model']
         else:
             self.global_model = None
 
-        self.models = args
+        self.models = models
 
     def fit(self, *args):
         if not self.global_model:
@@ -76,4 +76,7 @@ class Tier_2_Model(object):
         return prediction/2
 
     def __str__(self):
+        return 'Tier 2 Model'
+
+    def __repr__(self):
         return 'Tier 2 Model'

@@ -5,7 +5,8 @@ import numpy as np
 from .config import SAMPLING_RATE
 
 class Ensamble_CNN(object):
-    def __init__(self):
+    def __init__(self, *args):
+        self.epoch = args[0] if args else 200
         self.model = Sequential()
         self.model.add(Dropout(0.25, input_shape=(8, SAMPLING_RATE)))
         self.model.add(Conv1D(8, 1, input_shape=(8, SAMPLING_RATE)))
@@ -22,7 +23,7 @@ class Ensamble_CNN(object):
                            metrics=['accuracy'])
 
     def fit(self, X, y, *args, **kwargs):
-        self.model.fit(X, y, batch_size=16, nb_epoch=10, verbose=1)
+        self.model.fit(X, y, batch_size=16, nb_epoch=self.epoch, verbose=1)
 
     def predict(self, X,):
         return np.round(self.model.predict(X.reshape(1, 8, SAMPLING_RATE)))
@@ -31,4 +32,7 @@ class Ensamble_CNN(object):
         return self.model.predict_proba(X.reshape(1, 8, SAMPLING_RATE))[0][0]
 
     def __str__(self):
+        return 'Ensamble_CNN'
+
+    def __repr__(self):
         return 'Ensamble_CNN'

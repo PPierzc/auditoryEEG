@@ -55,3 +55,6 @@ class Ensamble_LDA(object):
 
     def __str__(self):
         return 'Ensamble_LDA'
+
+    def __repr__(self):
+        return 'Ensamble_LDA'

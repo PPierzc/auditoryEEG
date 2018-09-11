@@ -38,7 +38,7 @@ if __name__ == '__main__':
 	X = data['X']
 	y = data['y']
 
-	channel_id = 7
+	channel_id = 11
 
 	ERP(X, y, channel_id)
 
